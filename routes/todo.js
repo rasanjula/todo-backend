@@ -23,7 +23,7 @@ router.post('/new', async (req, res) => {
     res.status(200).json({ id: result.rows[0].id });
   } catch (error) {
     console.error('Error adding task:', error);  // Detailed error log
-    res.status(500).json({ error: error.message });-+
+    res.status(500).json({ error: error.message });
   }
 });
 
