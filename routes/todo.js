@@ -20,7 +20,7 @@ router.get("/tasks", async (req, res) => {
 router.post('/new', async (req, res) => {
   try {
     const result = await query('INSERT INTO task (description) VALUES ($1) RETURNING *', [req.body.description]);
-    res.status(200).json({ id: result.rows[0].id });
+    res.status(200).json({ id: result.rows[0].id, description:result.rows[0].description });
   } catch (error) {
     console.error('Error adding task:', error);  // Detailed error log
     res.status(500).json({ error: error.message });
